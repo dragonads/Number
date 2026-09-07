@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nick's Number Panel</title>
+  <meta name="description" content="Join Nick's Number Panel on Telegram.">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1095149849643543');
+  fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1095149849643543&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(0, 136, 255, 0.18), transparent 32%),
+        radial-gradient(circle at 10% 80%, rgba(0, 191, 255, 0.08), transparent 28%),
+        #05080d;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 16px;
+      position: relative;
+    }
+
+    .glow {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(0, 153, 255, 0.08);
+      filter: blur(70px);
+      pointer-events: none;
+    }
+
+    .glow.one {
+      top: -100px;
+      left: -100px;
+    }
+
+    .glow.two {
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 470px;
+      padding: 38px 25px 30px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 28px;
+      background: rgba(10, 15, 23, 0.88);
+      box-shadow:
+        0 20px 70px rgba(0,0,0,0.55),
+        0 0 45px rgba(0,136,255,0.08);
+      backdrop-filter: blur(18px);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-box {
+      width: 125px;
+      height: 125px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(145deg, #ffffff, #7d8794);
+      box-shadow:
+        0 0 25px rgba(255,255,255,0.12),
+        0 0 55px rgba(0,136,255,0.12);
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: #8fd3ff;
+      margin-bottom: 13px;
+      text-transform: uppercase;
+    }
+
+    .verified span {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #168cff;
+      color: white;
+      font-size: 11px;
+    }
+
+    h1 {
+      font-size: clamp(25px, 7vw, 35px);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      color: #aeb8c5;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .members {
+      margin: 25px auto 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      color: #d9e1eb;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .members-dot {
+      width: 8px;
+      height: 8px;
+      background: #35c9ff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #35c9ff;
+    }
+
+    .join-btn {
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 17px 20px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #168cff, #0066d6);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      box-shadow:
+        0 10px 30px rgba(0, 119, 255, 0.25),
+        0 0 20px rgba(0, 136, 255, 0.10);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 35px rgba(0, 119, 255, 0.32),
+        0 0 28px rgba(0, 136, 255, 0.15);
+    }
+
+    .join-btn:active {
+      transform: scale(0.98);
+    }
+
+    .telegram-icon {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      font-size: 13px;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 11px;
+      color: #687484;
+      line-height: 1.6;
+    }
+
+    .footer {
+      margin-top: 25px;
+      padding-top: 19px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 10px;
+      color: #596575;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 18px 12px;
+      }
+
+      .card {
+        padding: 34px 20px 26px;
+        border-radius: 24px;
+      }
+
+      .logo-box {
+        width: 112px;
+        height: 112px;
+      }
+
+      .join-btn {
+        padding: 16px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <main class="page">
+    <section class="card">
+
+      <div class="logo-box">
+        <img src="images.jpeg" alt="Nick's Number Panel Logo">
+      </div>
+
+      <div class="verified">
+        <span>✓</span>
+        Official Telegram Channel
+      </div>
+
+      <h1>Nick's Number Panel</h1>
+
+      <p class="description">
+        Join our official Telegram channel and stay connected with the latest updates and information.
+      </p>
+
+      <div class="members">
+        <span class="members-dot"></span>
+        Join our Telegram community
+      </div>
+
+      <a
+        class="join-btn"
+        href="https://t.me/+yc1IiXVukIhhMjc1"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="trackSubscribe()"
+      >
+        <span class="telegram-icon">➤</span>
+        Join Telegram Channel
+      </a>
+
+      <p class="note">
+        You will be redirected to Telegram when you tap the button.
+      </p>
+
+      <div class="footer">
+        © 2026 Nick's Number Panel · Official Channel
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    function trackSubscribe() {
+      if (typeof fbq === "function") {
+        fbq('track', 'Subscribe');
+      }
+    }
+  </script>
+
+</body>
+  </html>
