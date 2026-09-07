@@ -302,7 +302,6 @@
         href="https://t.me/+yc1IiXVukIhhMjc1"
         target="_blank"
         rel="noopener noreferrer"
-        onclick="trackSubscribe()"
       >
         <span class="telegram-icon">➤</span>
         Join Telegram Channel
@@ -318,15 +317,6 @@
 
     </section>
   </main>
-
-  <!-- Manual Subscribe Tracking Only -->
-  <script>
-    function trackSubscribe() {
-      if (typeof fbq === "function") {
-        fbq('track', 'Subscribe');
-      }
-    }
-  </script>
 
 </body>
 </html>
